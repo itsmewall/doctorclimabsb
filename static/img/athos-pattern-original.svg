@@ -1,0 +1,22 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brasília Modernist Tile Pattern (Athos Inspired - Original Geometric) -->
+  <defs>
+    <pattern id="bsb-tile" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+        <!-- Module 1: Top-Left (Blue Triangle) -->
+        <path d="M0 0 L60 0 L0 60 Z" fill="#BFD7FF" opacity="0.6"/>
+        
+        <!-- Module 2: Bottom-Right (Outlined Quarter Circle) -->
+        <path d="M120 120 L60 120 A60 60 0 0 1 120 60 Z" fill="none" stroke="#C7D3E6" stroke-width="2"/>
+        
+        <!-- Module 3: Center Element (Small Square) -->
+        <rect x="50" y="50" width="20" height="20" fill="#E2E8F0" opacity="0.5"/>
+        
+        <!-- Module 4: Top-Right (Line Detail) -->
+        <line x1="60" y1="0" x2="120" y2="60" stroke="#BFD7FF" stroke-width="2" opacity="0.6"/>
+
+        <!-- Module 5: Bottom-Left (Solid Arc) -->
+        <path d="M0 120 L60 120 A60 60 0 0 0 0 60 Z" fill="#EAF2FF" opacity="0.7"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bsb-tile)"/>
+</svg>

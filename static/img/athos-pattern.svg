@@ -1,0 +1,14 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brasília Modernist Tile Pattern (Athos Inspired) -->
+  <!-- Module 1: Top-Left (Quarter Circle) -->
+  <path d="M0 0 H50 A50 50 0 0 1 0 50 Z" fill="#0B3AAE" opacity="0.08"/>
+  
+  <!-- Module 2: Top-Right (Inverted Triangle) -->
+  <path d="M50 0 H100 L50 50 Z" fill="#3BA4F6" opacity="0.06"/>
+  
+  <!-- Module 3: Bottom-Left (Rectangle) -->
+  <rect x="10" y="60" width="30" height="30" fill="#94A3B8" opacity="0.05"/>
+  
+  <!-- Module 4: Bottom-Right (Quarter Circle Inverted) -->
+  <path d="M100 100 H50 A50 50 0 0 1 100 50 Z" fill="#0F172A" opacity="0.04"/>
+</svg>

@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Section with Parallax -->
+<section id="hero" class="hero">
+    <div class="container hero-container">
+        <div class="hero-content reveal">
+            <span class="badge">Atendimento em todo o DF e entorno</span>
+            <h1 class="hero-title">Temperatura ideal, <br> <span class="text-gradient">o ano inteiro.</span></h1>
+            <p class="subheadline">Instalação, manutenção e consertos de ar-condicionado com padrão técnico superior.
+                Residencial e comercial.</p>
+
+            <div class="hero-features stagger-wrapper">
+                <div class="feature-item stagger-item">
+                    <i data-lucide="check-circle" class="icon-sm"></i> Orçamento rápido
+                </div>
+                <div class="feature-item stagger-item">
+                    <i data-lucide="shield-check" class="icon-sm"></i> Garantia total
+                </div>
+                <div class="feature-item stagger-item">
+                    <i data-lucide="message-circle" class="icon-sm"></i> Atendimento via WhatsApp
+                </div>
+            </div>
+
+            <div class="cta-group stagger-wrapper">
+                <a href="https://wa.me/5561991181806" target="_blank" class="btn btn-primary btn-lg stagger-item">
+                    Solicitar Orçamento
+                </a>
+                <a href="#servicos" class="btn btn-secondary btn-lg stagger-item">
+                    Ver Serviços
+                </a>
+            </div>
+        </div>
+        <!-- Hero Image/Illustration -->
+        <div class="hero-image reveal stagger-item" data-delay="200">
+            <img src="{{ url_for('static', filename='img/hero-ac.svg') }}" alt="Tecnologia de Climatização"
+                class="hero-img-svg" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="servicos" class="section bg-light">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-subtitle">O que fazemos</span>
+            <h2>Serviços Especializados</h2>
+            <p>Soluções completas com rigor técnico e acabamento impecável.</p>
+        </div>
+
+        <div class="services-grid stagger-wrapper">
+            <!-- Card 1 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="wrench"></i>
+                </div>
+                <h3>Instalação</h3>
+                <p>Instalação seguindo rigorosamente as normas dos fabricantes para máxima eficiência.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="hammer"></i>
+                </div>
+                <h3>Pré-instalação</h3>
+                <p>Infraestrutura completa e planejada para ar-condicionado em obras e reformas.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3>Manutenção Preventiva</h3>
+                <p>Revitalize seu aparelho e elimine fungos com nossa limpeza profunda.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="settings"></i>
+                </div>
+                <h3>Manutenção Corretiva</h3>
+                <p>Diagnóstico preciso para reparar falhas e devolver o conforto ao seu ambiente.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="file-text"></i>
+                </div>
+                <h3>Projetos e PMOC</h3>
+                <p>Adequação legal e planos de manutenção para empresas e condomínios.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card stagger-item">
+                <div class="icon-box">
+                    <i data-lucide="thermometer"></i>
+                </div>
+                <h3>Carga de Gás</h3>
+                <p>Reposição técnica de fluido refrigerante para restaurar a potência.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Como Funciona Section -->
+<section id="como-funciona" class="section bg-alt">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-subtitle">Passo a passo</span>
+            <h2>Como Funciona</h2>
+        </div>
+
+        <div class="steps-grid stagger-wrapper">
+            <div class="step-card stagger-item">
+                <div class="step-number">1</div>
+                <h3>Contato</h3>
+                <p>Envie uma mensagem no WhatsApp ou preencha o formulário.</p>
+            </div>
+            <div class="step-card stagger-item">
+                <div class="step-number">2</div>
+                <h3>Orçamento</h3>
+                <p>Avaliamos sua necessidade e passamos uma estimativa clara.</p>
+            </div>
+            <div class="step-card stagger-item">
+                <div class="step-number">3</div>
+                <h3>Agendamento</h3>
+                <p>Escolhemos juntos o melhor horário para a visita técnica.</p>
+            </div>
+            <div class="step-card stagger-item">
+                <div class="step-number">4</div>
+                <h3>Execução</h3>
+                <p>Serviço realizado com limpeza, organização e garantia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Area Atendida Section -->
+<section id="area-atendida" class="section area-section">
+    <!-- Athos Pattern Overlay -->
+    <div class="athos-pattern-bg" aria-hidden="true"></div>
+
+    <div class="container area-content reveal">
+        <!-- Concrete Card Backdrop -->
+        <div class="area-card-backdrop">
+            <span class="section-subtitle">ONDE ESTAMOS</span>
+            <h2>Atendimento em todo o DF</h2>
+            <p class="lead" style="max-width: 600px; margin: 0 auto; color: var(--text-body);">
+                Do Plano Piloto às cidades satélites, levamos conforto premium até você.
+            </p>
+
+            <div class="regions-list stagger-wrapper">
+                <!-- Principais / Plano -->
+                <span class="region-chip highlight stagger-item">Asa Sul</span>
+                <span class="region-chip highlight stagger-item">Asa Norte</span>
+                <span class="region-chip highlight stagger-item">Lago Sul</span>
+                <span class="region-chip highlight stagger-item">Lago Norte</span>
+                <span class="region-chip highlight stagger-item">Sudoeste / Octogonal</span>
+                <span class="region-chip highlight stagger-item">Noroeste</span>
+                <span class="region-chip highlight stagger-item">Park Way</span>
+
+                <!-- Satélites -->
+                <span class="region-chip stagger-item">Águas Claras</span>
+                <span class="region-chip stagger-item">Guará I e II</span>
+                <span class="region-chip stagger-item">Taguatinga</span>
+                <span class="region-chip stagger-item">Vicente Pires</span>
+                <span class="region-chip stagger-item">Jardim Botânico</span>
+                <span class="region-chip stagger-item">Cruzeiro</span>
+                <span class="region-chip stagger-item">Núcleo Bandeirante</span>
+                <span class="region-chip stagger-item">Candangolândia</span>
+                <span class="region-chip stagger-item">Riacho Fundo I e II</span>
+                <span class="region-chip stagger-item">Sobradinho</span>
+                <span class="region-chip stagger-item">Planaltina</span>
+                <span class="region-chip stagger-item">Gama</span>
+                <span class="region-chip stagger-item">Ceilândia</span>
+                <span class="region-chip stagger-item">Samambaia</span>
+                <span class="region-chip stagger-item">Recanto das Emas</span>
+                <span class="region-chip stagger-item">Santa Maria</span>
+                <span class="region-chip stagger-item">São Sebastião</span>
+                <span class="region-chip stagger-item">Paranoá / Itapoã</span>
+
+                <!-- Entorno (Discreto) -->
+                <span class="region-chip entorno stagger-item" title="Sob consulta de taxa de deslocamento">Valparaíso
+                    (Entorno)</span>
+                <span class="region-chip entorno stagger-item" title="Sob consulta de taxa de deslocamento">Cidade
+                    Ocidental (Entorno)</span>
+                <span class="region-chip entorno stagger-item" title="Sob consulta de taxa de deslocamento">Águas Lindas
+                    (Entorno)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="section bg-light">
+    <div class="container faq-container">
+        <div class="section-header reveal">
+            <span class="section-subtitle">Tira-dúvidas</span>
+            <h2>Perguntas Frequentes</h2>
+        </div>
+
+        <div class="accordion reveal">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Qual o valor da visita técnica?</span>
+                    <i data-lucide="chevron-down" class="accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>O valor pode variar conforme a localidade e o tipo de equipamento. Entre em contato pelo
+                            WhatsApp para uma estimativa rápida e sem compromisso.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Vocês atendem aos finais de semana?</span>
+                    <i data-lucide="chevron-down" class="accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>Sim! Realizamos atendimentos agendados aos sábados para sua maior comodidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>O serviço tem garantia?</span>
+                    <i data-lucide="chevron-down" class="accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>Absolutamente. Oferecemos garantia legal de 90 dias em todos os serviços de instalação e
+                            manutenção.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Trabalham com quais marcas?</span>
+                    <i data-lucide="chevron-down" class="accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <p>Todas as principais do mercado: LG, Samsung, Daikin, Fujitsu, Gree, Springer Midea, Consul,
+                            Electrolux e outras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contato" class="section bg-alt">
+    <div class="container contact-wrapper">
+        <div class="contact-info reveal">
+            <h2>Vamos conversar?</h2>
+            <p>Escolha o canal de sua preferência. Respondemos o mais rápido possível.</p>
+
+            <div class="contact-methods">
+                <a href="https://wa.me/5561991181806" target="_blank" class="method-card whatsapp">
+                    <div class="icon">
+                        <img src="{{ url_for('static', filename='img/whatsapp.svg') }}" alt="WhatsApp" width="24"
+                            height="24">
+                    </div>
+                    <div class="details">
+                        <span class="label"
+                            style="font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em;">WhatsApp
+                            (Rápido)</span>
+                        <span class="value" style="font-weight: 700; color: #2563EB; font-size: 1.2rem;">(61)
+                            99118-1806</span>
+                    </div>
+                </a>
+
+                <a href="tel:61991181806" class="method-card">
+                    <div class="icon">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <div class="details">
+                        <span class="label"
+                            style="font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em;">Ligação</span>
+                        <span class="value" style="font-weight: 700; color: #0F172A; font-size: 1.2rem;">(61)
+                            99118-1806</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-form-container reveal" data-delay="200">
+            <form action="{{ url_for('contato') }}" method="POST" class="contact-form">
+                <h3 style="margin-bottom: 1.5rem;">Solicitar Contato</h3>
+
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(61) 99999-9999"
+                        class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="servico">Tipo de Serviço</label>
+                    <div class="select-wrapper">
+                        <select id="servico" name="servico" required class="form-select">
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="Instalação">Instalação</option>
+                            <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+                            <option value="Conserto">Conserto / Reparo</option>
+                            <option value="Carga de Gás">Carga de Gás</option>
+                            <option value="Pré-instalação">Pré-instalação (Obras)</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" rows="3" placeholder="Como podemos ajudar?"
+                        class="form-input"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Enviar Solicitação</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
