@@ -483,176 +483,149 @@ p {
     font-size: 1.1rem;
 }
 
-/* Area Atendida (Brasília Modernist) */
-.areas {
-    background-color: #F8FAFC;
-    /* Slate 50 */
+/* Area Atendida (Premium iOS/Glass) */
+#area-atendida {
     position: relative;
+    background-color: #F8FAFC;
     overflow: hidden;
     padding: 6rem 0;
 }
 
-.areas::before {
-    content: '';
+.athos-pattern-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/athos-pattern-original.svg');
-    background-size: 120px 120px;
-    opacity: 0.15;
-    /* Subtle background pattern */
+    background-image: url('../img/athos-pattern.svg');
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    opacity: 0.12;
     z-index: 0;
     pointer-events: none;
+    /* Soft Radial Mask to fade edges */
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
 }
 
-.areas::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 30%, #F8FAFC 90%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.areas__inner {
+.area-content {
     position: relative;
-    z-index: 2;
-    max-width: 1100px;
-    /* Comfortable width */
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.area-card-backdrop {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    max-width: 900px;
+    width: 100%;
     text-align: center;
 }
 
-.areas__kicker {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-}
-
-.areas__title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--text-main);
+.area-card-backdrop h2 {
     margin-bottom: 1rem;
-    letter-spacing: -0.025em;
+    color: var(--text-main);
 }
 
-.areas__subtitle {
-    font-size: 1.1rem;
+.area-card-backdrop .lead {
     color: var(--text-body);
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    line-height: 1.5;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
 }
 
 /* Chips Container */
-.areas__chips {
+.regions-list {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
-    margin-bottom: 2rem;
 }
 
-/* Chip (Pill) Style */
-.chip {
+/* Chip Style */
+.region-chip {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    /* Light border */
-    border-radius: 999px;
-    /* Pill */
     padding: 10px 18px;
+    background-color: white;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 999px;
     font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-main);
-    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
-    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    cursor: default;
-    user-select: none;
-    white-space: nowrap;
-}
-
-.chip:hover {
-    transform: translateY(-2px);
-    background-color: #EAF2FF;
-    /* Light blue tint */
-    border-color: rgba(11, 58, 174, 0.2);
-    color: var(--primary);
-    box-shadow: 0 4px 12px rgba(11, 58, 174, 0.1);
-}
-
-/* Entorno Section */
-.areas__entorno-container {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px dashed rgba(15, 23, 42, 0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.areas__entorno-title {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.chip.entorno {
-    background-color: transparent;
-    border-style: dashed;
     color: var(--text-body);
-    font-size: 0.9rem;
-    padding: 8px 14px;
+    font-weight: 500;
+    cursor: default;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-.chip.entorno:hover {
-    background-color: #FAFAFA;
-    border-style: solid;
-    border-color: var(--text-muted);
+.region-chip.highlight {
+    color: var(--text-main);
+    font-weight: 600;
+    border-color: rgba(11, 58, 174, 0.1);
+    background-color: white;
+}
+
+.region-chip:hover {
     transform: translateY(-1px);
+    background-color: var(--bg-surface);
+    border-color: rgba(11, 58, 174, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 640px) {
-    .areas {
-        padding: 4rem 0;
+/* Entorno (Dashed) */
+.region-chip.entorno {
+    background-color: transparent;
+    border: 1px dashed rgba(15, 23, 42, 0.15);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.region-chip.entorno:hover {
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #area-atendida {
+        padding: 4rem 1rem;
     }
 
-    .areas__title {
-        font-size: 2rem;
+    .area-card-backdrop {
+        padding: 2rem 1.5rem;
+        text-align: left;
+        align-items: flex-start;
     }
 
-    .areas__chips {
+    .area-card-backdrop h2,
+    .area-card-backdrop .lead,
+    .section-subtitle {
+        text-align: left;
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .area-card-backdrop .lead {
+        font-size: 1rem;
+    }
+
+    .regions-list {
+        justify-content: flex-start;
         gap: 8px;
-        justify-content: center;
-        /* Better balance on small screens */
     }
 
-    .chip {
+    .region-chip {
         padding: 8px 14px;
         font-size: 0.85rem;
-    }
-
-    .chip.entorno {
-        font-size: 0.8rem;
     }
 }
 
@@ -1185,5 +1158,239 @@ p {
     .footer__phone-highlight {
         width: 100%;
         max-width: none;
+    }
+}
+
+/* ==========================================================================
+   MOBILE UX/UI REFINEMENTS (iOS-Like)
+   Targeting: 320px - 900px
+   Note: Mobile-first overrides appended here to preserve desktop integrity.
+   ========================================================================== */
+
+/* TABLET & MOBILE (900px down) */
+@media (max-width: 900px) {
+
+    /* TYPOGRAPHY DENSITY */
+    html {
+        font-size: 15px;
+        /* Optimize density */
+    }
+
+    h1.hero-title {
+        font-size: 2.25rem;
+        /* Better wrapping */
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+        /* Force smaller headings */
+    }
+
+    /* HEADER & NAV (iOS Sheet) */
+    .header {
+        height: 64px;
+        /* Compact header */
+        background: rgba(255, 255, 255, 0.98);
+        /* Solid glass */
+    }
+
+    .menu-toggle {
+        padding: 0.75rem;
+        /* Larger hit area */
+    }
+
+    .nav-menu {
+        top: 64px;
+        /* Below header */
+        height: calc(100vh - 64px);
+        /* Full viewport minus header */
+        justify-content: flex-start;
+        /* Stack from top */
+        padding: 2rem 1.5rem calc(6rem + env(safe-area-inset-bottom));
+        /* Safe area padding */
+        gap: 1.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        /* Ensure readability */
+    }
+
+    .nav-link {
+        font-size: 1.35rem;
+        /* Large touch targets */
+        font-weight: 500;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        /* Divider */
+        border-radius: 12px;
+    }
+
+    .mobile-cta-wrapper {
+        margin-top: auto;
+        /* Push to bottom */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .ws-header {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+        /* Fat thumb friendly */
+        font-size: 1rem;
+    }
+
+    /* HERO (Flow & Stack) */
+    .hero {
+        padding-top: calc(64px + 2rem);
+        min-height: auto;
+        /* Remove viewport lock */
+        padding-bottom: 3rem;
+    }
+
+    .hero-container {
+        gap: 2rem;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        /* Stack features */
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        /* Stack buttons */
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .cta-group .btn {
+        width: 100%;
+        /* Full width */
+        min-height: 54px;
+        /* Minimum tap target */
+    }
+
+    /* SERVICES (Tablet 2 Col) */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+        /* Tighter padding */
+    }
+
+    /* CONTACT COMPACT */
+    .contact-wrapper {
+        gap: 3rem;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}
+
+/* MOBILE (640px down) */
+@media (max-width: 640px) {
+
+    /* MOBILE TYPOGRAPHY */
+    h1.hero-title {
+        font-size: 2rem;
+    }
+
+    .subheadline {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* SERVICES (1 Col Mobile) */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* STEPS (Vertical Stack) */
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .step-card {
+        display: flex;
+        flex-direction: row;
+        /* Horizontal layout for step number + text */
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .step-number {
+        margin: 0;
+        /* Clear auto margin */
+        flex-shrink: 0;
+    }
+
+    /* AREA ATENDIDA (Cleanup) */
+    #area-atendida {
+        padding: 3rem 0;
+    }
+
+    .area-card-backdrop {
+        backdrop-filter: blur(12px);
+        /* Performance: Reduce blur */
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .regions-list {
+        justify-content: flex-start;
+        /* Left align chips */
+    }
+
+    /* FAQ (Touch) */
+    .accordion-header {
+        padding: 1.25rem;
+        /* Larger touch area */
+        font-size: 1rem;
+    }
+
+    /* FORMS (iOS Input Fixes) */
+    .form-input,
+    .form-select {
+        height: 50px;
+        /* Taller inputs */
+        font-size: 16px !important;
+        /* Prevent iOS zoom */
+        padding: 0 1rem;
+    }
+
+    /* FLOATING WHATSAPP (Safe Area) */
+    .floating-whatsapp {
+        width: 56px;
+        height: 56px;
+        bottom: calc(1.5rem + env(safe-area-inset-bottom));
+        right: 1.5rem;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
+        /* Softer shadow */
+    }
+
+    /* FOOTER (Safe Area) */
+    .footer {
+        padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+        /* Clear FAB space */
+        text-align: center;
+    }
+
+    .footer__grid {
+        gap: 2rem;
+    }
+
+    .footer__phone-highlight {
+        margin: 0 auto 1.5rem;
+        /* Center highlight */
     }
 }
