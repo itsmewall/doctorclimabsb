@@ -1,40 +1,59 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // --------------------------------------------------------------------------
-    // 1. Mobile Menu Logic (Slide Over)
+    // 1. Robust Mobile Menu (Toggle, Scroll Lock, Resize)
     // --------------------------------------------------------------------------
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     const body = document.body;
 
+    function openMenu() {
+        menuToggle.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('active');
+        body.classList.add('no-scroll');
+        menuToggle.innerHTML = '<i data-lucide="x"></i>';
+        lucide.createIcons();
+    }
+
+    function closeMenu() {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        body.classList.remove('no-scroll');
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        lucide.createIcons();
+    }
+
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function () {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-
-            // Toggle State
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-
-            // Lock body scroll when menu is open
-            if (!isExpanded) {
-                body.style.overflow = 'hidden';
-                menuToggle.innerHTML = '<i data-lucide="x"></i>'; // Change icon to X
+        // Toggle Click
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
             } else {
-                body.style.overflow = '';
-                menuToggle.innerHTML = '<i data-lucide="menu"></i>'; // Back to hamburger
+                openMenu();
             }
-            lucide.createIcons();
         });
 
-        // Close menu on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                body.style.overflow = '';
-                menuToggle.innerHTML = '<i data-lucide="menu"></i>';
-                lucide.createIcons();
-            });
+        // Close on Link Click
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close on Click Outside (optional robustness)
+        document.addEventListener('click', function (e) {
+            if (navMenu.classList.contains('active') &&
+                !navMenu.contains(e.target) &&
+                !menuToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Close on Resize > 900px
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 900 && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
         });
     }
 
@@ -60,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         sections.forEach(current => {
             const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 100; // Offset for header height
+            const sectionTop = current.offsetTop - 100;
             const sectionId = current.getAttribute('id');
             const navLink = document.querySelector('.nav-link[href*="' + sectionId + '"]');
 
@@ -75,13 +94,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.addEventListener('scroll', scrollSpy);
-    scrollSpy(); // Initial check
+    scrollSpy();
 
     // --------------------------------------------------------------------------
     // 4. Intersection Observer (Scroll Reveal Animation)
     // --------------------------------------------------------------------------
     const revealOptions = {
-        threshold: 0.1, // Trigger when 10% visible
+        threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
@@ -89,23 +108,18 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
 
-            // Add active class
             entry.target.classList.add('active');
 
-            // Handle stagger children explicitly if useful
             if (entry.target.classList.contains('stagger-wrapper')) {
                 const items = entry.target.querySelectorAll('.stagger-item');
                 items.forEach(item => item.classList.add('active'));
             }
 
-            // Stop observing once revealed
             observer.unobserve(entry.target);
         });
     }, revealOptions);
 
-    // Observe generic reveal elements
     document.querySelectorAll('.reveal').forEach(el => revealOnScroll.observe(el));
-    // Observe specific stagger wrappers that might not have .reveal
     document.querySelectorAll('.stagger-wrapper').forEach(el => revealOnScroll.observe(el));
 
 
@@ -118,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
         acc.addEventListener('click', function () {
             const isActive = this.getAttribute('aria-expanded') === 'true';
 
-            // Close all others (Accordion behavior)
             accordions.forEach(otherAcc => {
                 if (otherAcc !== this) {
                     otherAcc.setAttribute('aria-expanded', 'false');
@@ -126,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // Toggle current
             this.setAttribute('aria-expanded', !isActive);
             const content = this.nextElementSibling;
 
@@ -141,10 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // --------------------------------------------------------------------------
     // 6. Toasts Handling (Auto Dismiss)
     // --------------------------------------------------------------------------
-    const toasts = document.querySelectorAll('.alert'); // Using Flask flash categories
+    const toasts = document.querySelectorAll('.alert');
     if (toasts.length > 0) {
         toasts.forEach((toast, index) => {
-            // Auto dismiss after 5s
             setTimeout(() => {
                 toast.style.transition = "opacity 0.5s ease";
                 toast.style.opacity = "0";
